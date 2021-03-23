@@ -15,6 +15,6 @@
     "socket.io": "^4.0.0"
   },
   "scripts": {
-    "dev:server": "nodemon --exec src/server.js"
+    "dev:server": "nodemon --exec babel-node src/server"
   }
 }
