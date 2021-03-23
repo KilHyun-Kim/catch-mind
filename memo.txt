@@ -1,0 +1,29 @@
+socket.io ? 기존의 HTTP 와는 다르게 서버와 클라이언트가 통신을 끊지 않고, 계속해서 소통하는 방식.
+
+src/server.js
+-> app.listen 부분의 서버 실행 위에 socketIO를 얹어준다.
+    => io = socketIO(server)
+
+io.on("connection", socket => console.log(socket)) 연결 될 때 실행되는 함수를 적어줘서 해당 socket 값을 알 수 있다.
+
+
+src/static/index.js
+-> 프론트 코드에 io("/") 를 추가 하여 실행 됨으로써 곧바로 실행할 수 있다.
+
+--------------------------------------------------------------------------
+#src/server.js
+## 서버가 socket.emit("") 으로 값을 보냄,
+ io.on("connection", (socket) => {
+  socket.emit("hello");
+});
+
+#src/static/index.js
+## 프론트에서 socket.on("hello") 로 값을 받아서 뒤의 함수를 실행함
+socket.on("hello", () => console.log("Somebody said Hello"));
+--------------------------------------------------------------------------
+
+socket.emit : 현재 연결된 곳에만 이벤트를 보냄
+socket.broadcast.emit : 현재 연결된 곳 빼고 나머지 곳에 이베트를 보냄
+*****중요!
+서버에서 지정한 socket.emit("hey") 는 client의 socket.on("hey", function)
+socekt 에서 "hey"를 실행 시키면 client에서 "hey"값을 받아 두 번째 인자인 function 을 실행시킴.
