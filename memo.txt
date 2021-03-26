@@ -27,3 +27,32 @@ socket.broadcast.emit : 현재 연결된 곳 빼고 나머지 곳에 이베트�
 *****중요!
 서버에서 지정한 socket.emit("hey") 는 client의 socket.on("hey", function)
 socekt 에서 "hey"를 실행 시키면 client에서 "hey"값을 받아 두 번째 인자인 function 을 실행시킴.
+
+
+
+
+#### Gulp ? ####  Webpack 을 많이 쓰지만, 단순 Css Js 페이지 정도에서는 가볍게 사용 할 수 있는 라이브러리,
+gulp 는 node.js 기반의 task runner 입니다. 
+반복적인 귀찮은 작업들이나 프론트엔드 빌드에 필요한 작업들을 gulp 통해 쉽게 처리해줄 수 있습니다.
+# gulpfile.babel.js
+ - gulp를 사용하여 scss 를 자동으로 css로 build 시켜서 적용이 가능하게된다.
+ - 경로 설정 중요 < 공부 필요
+
+
+ 1) gulp-autoprefixer ? 
+  - Webkit prefix 같은 것을 대신해서 쓸 수 있음,.
+  >> 모든 브라우져가 처리 할 수 있는 형태로 만들어야할 경우 자동으로 제작해주는 라이브러리
+
+ 2) gulp-csso ? 
+  - css의 공백을 없애고 한 줄로 쭉 나오게 정리함.
+
+ 3) gulp.watch()
+  - 지정해준 경로의 파일이 변경되면 styles 함수를 한번 더 실행하도록 만들어줌
+  - 모든 파일의 변화를 체크하지만, 컴파일은 하나의 파일만 되도록,
+######################################################################################################
+
+#### del ? 
+
+#### Browserify ? 
+Browserify는 개발자가 브라우저에서 사용하기 위해 컴파일되는 Node.js 스타일 모듈을 작성할 수있는 오픈 소스 JavaScript 도구입니다. 
+Browserify를 사용하면 Node.js에서 사용하는 것과 동일한 방식으로 브라우저에서 require를 사용할 수 있습니다.
