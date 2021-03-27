@@ -1,4 +1,4 @@
-import gulp, { watch } from "gulp";
+import gulp from "gulp";
 import sass from "gulp-sass";
 import autoprefixer from "gulp-autoprefixer";
 import minifyCSS from "gulp-csso";

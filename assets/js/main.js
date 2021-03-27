@@ -1,13 +1,26 @@
-// static : 프론트엔드를 위한 것
-import { handleMessageNotif } from "./chat";
-const socket = io("/");
-function sendMessage(message) {
-  socket.emit("newMessage", { message });
-  console.log(`You: ${message}`);
+const body = document.querySelector("body");
+const loginForm = document.getElementById("jsLogin");
+
+const nickname = localStorage.getItem("nickname");
+const NICKNAME = "nickname";
+const LOGGED_OUT = "loggedOut";
+const LOGGED_IN = "loggedIn";
+
+if (nickname === null) {
+  body.className = LOGGED_OUT;
+} else {
+  body.className = LOGGED_IN;
+  // socket.io 연결
 }
 
-function setNickname(nickname) {
-  socket.emit("setNickname", { nickname });
-}
+const handleFormSubmit = (e) => {
+  e.preventDefault();
+  const input = loginForm.querySelector("input");
+  const { value } = input;
+  input.value = "";
+  localStorage.setItem(NICKNAME, value);
+};
 
-socket.on("messageNotif", handleMessageNotif);
+if (loginForm) {
+  loginForm.addEventListener("submit", handleFormSubmit);
+}
