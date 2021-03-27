@@ -12,5 +12,8 @@ html(lang="en")
                 input(placeholder="닉네임을 설정 해주세요.", type="text")
         .gameContainer#jsGame 
             h1 You are logged in
+            div#jsNotifications
+        script. 
+            window.events = !{events}
         script(src="/socket.io/socket.io.js")
         script(src="/js/main.js")
