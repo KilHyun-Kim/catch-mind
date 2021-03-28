@@ -1,4 +1,5 @@
 // socket 에 대한 함수들을 모두 모아놓음,
+import { handleNewMessage } from "./chat";
 import { handleNewUser, handleDisconnected } from "./notifications";
 
 let socket = null;
@@ -12,4 +13,5 @@ export const initSockets = (aSocket) => {
   updateSocket(aSocket);
   aSocket.on(events.newUser, handleNewUser);
   aSocket.on(events.disconnected, handleDisconnected);
+  aSocket.on(events.newMsg, handleNewMessage);
 };
